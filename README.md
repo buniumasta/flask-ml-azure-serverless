@@ -228,20 +228,21 @@ Output should look like:
 ```
 python -m pytest -vv test_is_leap_year.py
 =============== test session starts ==============================
-platform linux -- Python 3.7.3, pytest-6.2.1, py-1.10.0, pluggy-0.13.1 -- /home/bartosz/.flask-ml-azure/bin/python
+platform linux -- Python 3.7.3, pytest-6.2.1, py-1.10.0,
+pluggy-0.13.1 -- /home/bartosz/.flask-ml-azure/bin/python
 cachedir: .pytest_cache
 rootdir: /home/bartosz/projects/flask-ml-azure-serverless
 collected 9 items
 
-test_is_leap_year.py::test_is_leap_01 PASSED                                                                                                                                                     [ 11%]
-test_is_leap_year.py::test_is_leap_02 PASSED                                                                                                                                                     [ 22%]
-test_is_leap_year.py::test_is_leap_03 PASSED                                                                                                                                                     [ 33%]
-test_is_leap_year.py::test_is_leap_04 PASSED                                                                                                                                                     [ 44%]
-test_is_leap_year.py::test_is_leap_05 PASSED                                                                                                                                                     [ 55%]
-test_is_leap_year.py::test_is_leap_06 PASSED                                                                                                                                                     [ 66%]
-test_is_leap_year.py::test_is_leap_07 PASSED                                                                                                                                                     [ 77%]
-test_is_leap_year.py::test_is_leap_08 PASSED                                                                                                                                                     [ 88%]
-test_is_leap_year.py::test_is_leap_09 PASSED                                                                                                                                                     [100%]
+test_is_leap_year.py::test_is_leap_01 PASSED [ 11%]
+test_is_leap_year.py::test_is_leap_02 PASSED [ 22%]
+test_is_leap_year.py::test_is_leap_03 PASSED [ 33%]
+test_is_leap_year.py::test_is_leap_04 PASSED [ 44%]
+test_is_leap_year.py::test_is_leap_05 PASSED [ 55%]
+test_is_leap_year.py::test_is_leap_06 PASSED [ 66%]
+test_is_leap_year.py::test_is_leap_07 PASSED [ 77%]
+test_is_leap_year.py::test_is_leap_08 PASSED [ 88%]
+test_is_leap_year.py::test_is_leap_09 PASSED [100%]
 
 ========= 9 passed in 0.02s ======================================================
 ```
