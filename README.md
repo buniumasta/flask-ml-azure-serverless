@@ -12,7 +12,7 @@ This project demonstrates Continuous Integration & Delivery for Python based app
 
 Project consisted of two phases: Continuous Integration & Continuous delivery, the planning is attached can be seen *[here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/2#issue-780536233)* and tasks were tracked & listed at *[Trello board](https://github.com/buniumasta/flask-ml-azure-serverless/issues/1#issue-780534847)*
 
-#Instructions
+# Instructions
 
 ## Setting up the stage
 
