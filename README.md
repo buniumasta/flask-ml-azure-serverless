@@ -39,7 +39,7 @@ git config user.name "YourName"
 git config user.email "Your@email"
 ```
 
-Create python files:
+#### Create python files:
 *hello.py*
 ```
 def toyou(x):
@@ -144,12 +144,44 @@ def test_is_leap_09():
 
 ```
 
+#### Create Makefile
+
+add basic structure to enable automation
+```
+install:
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
+
+test_hello:
+	python -m pytest -vv test_hello.py
+
+lint_hello:
+		pylint --disable=R,C, hello.py
+
+test_is_leap:
+	python -m pytest -vv test_is_leap_year.py
+
+lint_is_leap:
+	pylint --disable=R,C is_leap_year.py
+```
+
+create requirements.txt which will list all python dependencies for project:
+```
+Flask==1.0.2
+pandas==0.24.2
+scikit-learn==0.20.3
+pylint
+pytest
+```
+
+
 Add files to version control, commit and push.
 ```
 git add hello.py
 git add test_hello.py
-is_leap_year.py
-test_is_leap_year.py
+git add is_leap_year.py
+git add test_is_leap_year.py
+git add Makefile
 git commit -m "dummy project files"
 git push
 ```
@@ -160,6 +192,57 @@ python3 -m venv ~/.flask-ml-azure
 source ~/.flask-ml-azure/bin/activate
 ```
 
+Prepare environment by installing Dependencies:
+
+```
+make install
+```
+
+#### Testing & Checking quality: Dummy Python scripts
+
+Check quality of Code (lint)
+
+```
+make lint_is_leap
+```
+
+output should look like:
+```
+pylint --disable=R,C is_leap_year.py
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+```
+
+Run tests for to dummy Python scripts:
+
+```
+make test_is_leap
+
+```
+
+Output should look like:
+
+```
+python -m pytest -vv test_is_leap_year.py
+=============== test session starts ==============================
+platform linux -- Python 3.7.3, pytest-6.2.1, py-1.10.0, pluggy-0.13.1 -- /home/bartosz/.flask-ml-azure/bin/python
+cachedir: .pytest_cache
+rootdir: /home/bartosz/projects/flask-ml-azure-serverless
+collected 9 items
+
+test_is_leap_year.py::test_is_leap_01 PASSED                                                                                                                                                     [ 11%]
+test_is_leap_year.py::test_is_leap_02 PASSED                                                                                                                                                     [ 22%]
+test_is_leap_year.py::test_is_leap_03 PASSED                                                                                                                                                     [ 33%]
+test_is_leap_year.py::test_is_leap_04 PASSED                                                                                                                                                     [ 44%]
+test_is_leap_year.py::test_is_leap_05 PASSED                                                                                                                                                     [ 55%]
+test_is_leap_year.py::test_is_leap_06 PASSED                                                                                                                                                     [ 66%]
+test_is_leap_year.py::test_is_leap_07 PASSED                                                                                                                                                     [ 77%]
+test_is_leap_year.py::test_is_leap_08 PASSED                                                                                                                                                     [ 88%]
+test_is_leap_year.py::test_is_leap_09 PASSED                                                                                                                                                     [100%]
+
+========= 9 passed in 0.02s ======================================================
+```
 
 
-### Setting up Environment Azure Scaling
+### Setting up Environment Azure Scaling======
