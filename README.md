@@ -8,6 +8,8 @@ This project demonstrates Continuous Integration & Delivery for Python based app
 
 **Sklearn** is used in this project, the Flask Web Application allows to predict the housing prices in Boston based on Kaggle model. The details about the approach can be found at: *[Kaggle Boston](https://www.kaggle.com/c/boston-housing)*, sources for application can be found here.
 
+## Watch short video about the proejc ton *[Youtube](https://youtu.be/abFjDkjCfoQ)*
+
 # Project Plan
 
 Project consisted of two phases: Continuous Integration & Continuous delivery, the planning is attached can be seen *[here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/2#issue-780536233)* and tasks were tracked & listed at *[Trello board](https://github.com/buniumasta/flask-ml-azure-serverless/issues/1#issue-780534847)*
@@ -439,6 +441,7 @@ az webapp log tail --name flask-ml-myservice --resource-group <YOURRG>
 
 ```
 
+
 ```
 Ending Log Tail of existing logs ---
 
@@ -449,3 +452,5 @@ Starting Live Log Stream ---
 2021-01-06T18:12:18.441876443Z [2021-01-06 18:12:18,441] INFO in app: Scaling Payload: %s payload
 2021-01-06T18:12:18.452119652Z 172.16.0.1 - - [06/Jan/2021:18:12:18 +0000] "POST /predict HTTP/1.1" 200 35 "-" "curl/7.64.0"
 ```
+
+## Watch short video about the proejc ton *[Youtube](https://youtu.be/abFjDkjCfoQ)*
