@@ -29,10 +29,10 @@ Go to Github and create repository,
 
 #### Git
 
-Copy HTTPS link of created GitHUB repository from *code* section/tab, clone repository in Azure CLI:
+Copy SSH link of created GitHUB repository from *code* section/tab, clone repository in Azure CLI:
 
 ```
-git clone <httpslink>
+git clone <sshlink>
 ```
 
 Configure global user&email:
@@ -257,4 +257,159 @@ The next phase of the project is to use GitHub environment for execution the tes
 
 ### Continuous Delivery & Dummy Python Project  Pipelines
 
-https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files
+Azure Pipelines can trigger the build and validate pull request automatically
+
+#### Dependencies
+1. Githup account
+2. An Azure DevOps organisation
+3. DevOps project/GitHub Repor
+
+
+
+1. : Set Up Your GitHub Repo and Integrate Azure Pipelines
+
+Sources for project can be taken from *[here](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files)*
+
+2. Clone the Repository & ensure that sklearn files are present
+
+Clone the GitHub repo.
+
+```
+git clone <(ssh link from github)>
+```
+
+3. Set up virtualenv:
+```
+python3 -m venv ~/.flask-ml-azure
+source ~/.flask-ml-azure/bin/activate
+```
+4. Run make install & install dependencies
+
+5.  Create an app service and initially deploy your app in Cloud Shell:
+
+az webapp up -n flask-ml-myservice
+
+6. Verify the deployed application works by browsing to the deployed url
+
+Check application link:
+
+https://flask-ml-myservice.azurewebsites.net/
+
+5. Perform Prediction
+
+Change the line in make_predict_azure_app.sh to match the deployed prediction:
+
+```
+-X POST https://flask-ml-myserice.azurewebsites.net:$PORT/predict
+```
+
+
+6. Create an Azure DevOps project
+Next, we'll need to create an Azure DevOps project and connect to Azure.
+
+  1. Create new project and name it
+  2. Setup  new service connection with Azure Resource Manager
+  3. Select Pipeline and create a new one.
+  4. Create the GitHub Integration choose Configure Python to Linux Web App on Azure
+  6. Edit YAML file as follow:
+
+```
+# Python to Linux Web App on Azure
+# Build your Python project and deploy it to Azure as a Linux Web App.
+# Change python version to one thats appropriate for your application.
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- main
+
+variables:
+  # Azure Resource Manager connection created during pipeline creation
+  azureServiceConnectionId: 'a2871cdf-a404-4080-9125-973b64a3c2a5'
+
+  # Web app name
+  webAppName: 'flask-ml-myservice'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+  # Environment name
+  environmentName: 'flask-ml-myservice'
+
+  # Project root folder. Point to the folder containing manage.py file.
+  projectRoot: $(System.DefaultWorkingDirectory)
+
+  # Python version: 3.7
+  pythonVersion: '3.7'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: BuildJob
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '$(pythonVersion)'
+      displayName: 'Use Python $(pythonVersion)'
+
+    - script: |
+        python -m venv antenv
+        source antenv/bin/activate
+        python -m pip install --upgrade pip
+        pip install setup
+        pip install -r requirements.txt
+      workingDirectory: $(projectRoot)
+      displayName: "Install requirements"
+
+    - script: |
+        python -m venv antenv
+        source antenv/bin/activate
+        make install
+        make lint
+      workingDirectory: $(projectRoot)
+      displayName: "Run Lint test"
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive files'
+      inputs:
+        rootFolderOrFile: '$(projectRoot)'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
+
+    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      displayName: 'Upload package'
+      artifact: drop
+
+- stage: Deploy
+  displayName: 'Deploy Web App'
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+  - deployment: DeploymentJob
+    pool:
+      vmImage: $(vmImageName)
+    environment: $(environmentName)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '$(pythonVersion)'
+            displayName: 'Use Python version'
+
+          - task: AzureWebApp@1
+            displayName: 'Deploy Azure Web App : flask-ml-myservice'
+            inputs:
+              azureSubscription: $(azureServiceConnectionId)
+              appName: $(webAppName)
+              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+
+```
+
+7. Make the change in application & push code to Github -> Deployment process should start.
