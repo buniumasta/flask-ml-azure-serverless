@@ -327,7 +327,7 @@ Port: 443
 Next, we'll need to create an Azure DevOps project and connect to Azure.
 
   1. Create new project and name it
-  2. Followin official *[MS documenation](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)*
+  2. Follow official *[MS documenation](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)*
   3. Setup  new service connection with Azure Resource Manager
   4. Select Pipeline and create a new one.
   5. Create the GitHub Integration and choose Configure Python to Linux Web App on Azure
