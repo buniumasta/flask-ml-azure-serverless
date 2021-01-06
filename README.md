@@ -300,16 +300,16 @@ az webapp up -n flask-ml-myservice
 
 6. Verify the deployed application works by browsing to the deployed url
 
+```
 Check application link:
 
 https://flask-ml-myservice.azurewebsites.net/
+```
 
-
-5. Perform Prediction
-
-Change the line in make_predict_azure_app.sh to match the deployed prediction:
+5. Edit Shell script make_predict_azure_app.sh
 
 ```
+Change the line in make_predict_azure_app.sh to match the deployed prediction:
 -X POST https://flask-ml-myserice.azurewebsites.net:$PORT/predict
 ```
 
