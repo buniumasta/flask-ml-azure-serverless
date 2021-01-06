@@ -260,45 +260,50 @@ Example output from make all can be found [here](https://github.com/buniumasta/f
 
 The next phase of the project is to use GitHub environment for execution the tests & code quality check. For that purpose Git Hub actions needs to be enabled.
 
-## Continuous Delivery & Dummy Python Project Azure Pipelines
+##  FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
 
 Azure Pipelines can trigger the build and validate pull request automatically
 
-#### Dependencies
+### Dependencies
 1. Githup account
 2. An Azure DevOps organisation
 3. DevOps project/GitHub Repor
 
 
+### Instructions
 
-1. : Set Up Your GitHub Repo and Integrate Azure Pipelines
+1.  Set Up Your GitHub Repository,
 
-Sources for project can be taken from *[here](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files)*
+  Sources for project can be taken from *[here](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files)*
 
 2. Clone the Repository & ensure that sklearn files are present
 
-Clone the GitHub repo.
 
 ```
 git clone <(ssh link from github)>
 ```
 
 3. Set up virtualenv:
+
 ```
 python3 -m venv ~/.flask-ml-azure
 source ~/.flask-ml-azure/bin/activate
 ```
+
 4. Run make install & install dependencies
 
 5.  Create an app service and initially deploy your app in Cloud Shell:
 
+```
 az webapp up -n flask-ml-myservice
+```
 
 6. Verify the deployed application works by browsing to the deployed url
 
 Check application link:
 
 https://flask-ml-myservice.azurewebsites.net/
+
 
 5. Perform Prediction
 
@@ -308,8 +313,15 @@ Change the line in make_predict_azure_app.sh to match the deployed prediction:
 -X POST https://flask-ml-myserice.azurewebsites.net:$PORT/predict
 ```
 
+6. Run prediction prediction script and feed in applicaton with example data.
 
-6. Create an Azure DevOps project
+```
+bartosz@Azure:~/projects/flask-ml-azure-serverless$ ./make_predict_azure_app.sh
+Port: 443
+{"prediction":[20.35373177134412]}
+```
+
+7. Create an Azure DevOps project
 Next, we'll need to create an Azure DevOps project and connect to Azure.
 
   1. Create new project and name it
@@ -417,10 +429,4 @@ stages:
 
 ```
 
-7. Make the change in application & push code to Github -> Deployment process should start.
-
-8. Successful prediction from deployed flask app in Azure Cloud Shell. Use this file as a template for the deployed prediction. The output should look similar to this:
-
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
+8. Make the change in application & push code to Github -> Deployment process should start.
