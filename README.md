@@ -1,4 +1,6 @@
-# CD-CI - Python Flask Web Framework
+# Overview
+
+## CD-CI - Python Flask Web Framework
 
 [![Build Status](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_apis/build/status/buniumasta.flask-ml-azure-serverless?branchName=main)](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_build/latest?definitionId=2&branchName=main)
 
@@ -6,8 +8,11 @@ This project demonstrates Continuous Integration & Delivery for Python based app
 
 **Sklearn** is used in this project, the Flask Web Application allows to predict the housing prices in Boston based on Kaggle model. The details about the approach can be found at: *[Kaggle Boston](https://www.kaggle.com/c/boston-housing)*, sources for application can be found here.
 
+# Project Plan
 
 Project consisted of two phases: Continuous Integration & Continuous delivery, the planning is attached can be seen *[here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/2#issue-780536233)* and tasks were tracked & listed at *[Trello board](https://github.com/buniumasta/flask-ml-azure-serverless/issues/1#issue-780534847)*
+
+#Instructions
 
 ## Setting up the stage
 
@@ -25,7 +30,7 @@ Once **Azure** account was created go to portal and login. Open Azure CLI consol
 
 Go to Github and create repository,
 
-### Dummy Python Project & Local Test (python virtual environment)
+## Dummy Python Project & Local Test (python virtual environment)
 
 #### Git
 
@@ -251,11 +256,11 @@ test_is_leap_year.py::test_is_leap_09 PASSED [100%]
 
 Example output from make all can be found [here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/4#issue-780630236)
 
-### Dummy Python Project & SaaS Build Server - GitHUB
+## Dummy Python Project & SaaS Build Server - GitHUB
 
 The next phase of the project is to use GitHub environment for execution the tests & code quality check. For that purpose Git Hub actions needs to be enabled.
 
-### Continuous Delivery & Dummy Python Project  Pipelines
+## Continuous Delivery & Dummy Python Project Azure Pipelines
 
 Azure Pipelines can trigger the build and validate pull request automatically
 
@@ -413,3 +418,9 @@ stages:
 ```
 
 7. Make the change in application & push code to Github -> Deployment process should start.
+
+8. Successful prediction from deployed flask app in Azure Cloud Shell. Use this file as a template for the deployed prediction. The output should look similar to this:
+
+udacity@Azure:~$ ./make_predict_azure_app.sh
+Port: 443
+{"prediction":[20.35373177134412]}
