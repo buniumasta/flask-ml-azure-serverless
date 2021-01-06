@@ -323,7 +323,7 @@ Port: 443
 {"prediction":[20.35373177134412]}
 ```
 
-7. Create an Azure DevOps project
+### Create an Azure DevOps project
 Next, we'll need to create an Azure DevOps project and connect to Azure.
 
   1. Create new project and name it
