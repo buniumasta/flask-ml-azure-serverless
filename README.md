@@ -1,5 +1,7 @@
 # CD-CI - Python Flask Web Framework
 
+[![Build Status](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_apis/build/status/buniumasta.flask-ml-azure-serverless?branchName=main)](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_build/latest?definitionId=2&branchName=main)
+
 This project demonstrates Continuous Integration & Delivery for Python based application using the FLASK Web Framework.
 
 **Sklearn** is used in this project, the Flask Web Application allows to predict the housing prices in Boston based on Kaggle model. The details about the approach can be found at: *[Kaggle Boston](https://www.kaggle.com/c/boston-housing)*, sources for application can be found here.
@@ -249,4 +251,10 @@ test_is_leap_year.py::test_is_leap_09 PASSED [100%]
 
 Example output from make all can be found [here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/4#issue-780630236)
 
-### Dummy Python Project & PaaS Build Server - GitHUB
+### Dummy Python Project & SaaS Build Server - GitHUB
+
+The next phase of the project is to use GitHub environment for execution the tests & code quality check. For that purpose Git Hub actions needs to be enabled.
+
+### Continuous Delivery & Dummy Python Project  Pipelines
+
+https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files
