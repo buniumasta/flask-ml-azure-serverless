@@ -431,3 +431,21 @@ stages:
 ```
 
 8. Make the change in application & push code to Github -> Deployment process should start.
+
+9. check logs of Application
+
+```
+az webapp log tail --name flask-ml-myservice --resource-group <YOURRG>
+
+```
+
+```
+Ending Log Tail of existing logs ---
+
+Starting Live Log Stream ---
+
+2021-01-06T18:12:18.435851738Z [2021-01-06 18:12:18,434] INFO in app: JSON payload: %s json_payload
+2021-01-06T18:12:18.441159543Z [2021-01-06 18:12:18,440] INFO in app: inference payload DataFrame: %s inference_payload
+2021-01-06T18:12:18.441876443Z [2021-01-06 18:12:18,441] INFO in app: Scaling Payload: %s payload
+2021-01-06T18:12:18.452119652Z 172.16.0.1 - - [06/Jan/2021:18:12:18 +0000] "POST /predict HTTP/1.1" 200 35 "-" "curl/7.64.0"
+```
