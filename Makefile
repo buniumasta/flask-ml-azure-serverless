@@ -17,4 +17,4 @@ lint_is_leap:
 lint:
 	pylint --disable=R,C,W1203,W0702 app.py
 
-all: install lint
+all: install lint_hello test_hello
