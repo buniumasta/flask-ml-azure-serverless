@@ -23,7 +23,7 @@ Once **Azure** account was created go to portal and login. Open Azure CLI consol
 
 Go to Github and create repository,
 
-### Create Dummy Python Project
+### Dummy Python Project & Local Test (python virtual environment)
 
 #### Git
 
@@ -163,6 +163,8 @@ test_is_leap:
 
 lint_is_leap:
 	pylint --disable=R,C is_leap_year.py
+
+all: install lint_hello test_hello
 ```
 
 create requirements.txt which will list all python dependencies for project:
@@ -244,5 +246,6 @@ test_is_leap_year.py::test_is_leap_09 PASSED                                    
 ========= 9 passed in 0.02s ======================================================
 ```
 
+Example output from make all can be found [here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/4#issue-780630236)
 
-### Setting up Environment Azure 
+### Dummy Python Project & PaaS Build Server - GitHUB
