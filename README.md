@@ -21,7 +21,6 @@ Follwoing will be done:
 3. Basic [Python](https://www.python.org/) knowledge & programming experience
 4. Basic shell
 
-Once **Azure** account was created go to portal and login.
-![alt text] (https://github.com/buniumasta/flask-ml-azure-serverless/issues/3#issue-780585384)
+Once **Azure** account was created go to portal and login. Open Azure CLI console in portal, see below [screen](https://github.com/buniumasta/flask-ml-azure-serverless/issues/3#issue-780585384)
 
 ### Setting up Environment Azure Scaling
