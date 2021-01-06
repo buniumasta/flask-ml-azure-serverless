@@ -1,4 +1,4 @@
-# Overview
+documentation# Overview
 
 ## CD-CI - Python Flask Web Framework
 
@@ -325,9 +325,10 @@ Port: 443
 Next, we'll need to create an Azure DevOps project and connect to Azure.
 
   1. Create new project and name it
-  2. Setup  new service connection with Azure Resource Manager
-  3. Select Pipeline and create a new one.
-  4. Create the GitHub Integration choose Configure Python to Linux Web App on Azure
+  2. Followin official *[MS documenation](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)*
+  3. Setup  new service connection with Azure Resource Manager
+  4. Select Pipeline and create a new one.
+  5. Create the GitHub Integration and choose Configure Python to Linux Web App on Azure
   6. Edit YAML file as follow:
 
 ```
