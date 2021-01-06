@@ -8,7 +8,7 @@ This project demonstrates Continuous Integration & Delivery for Python based app
 
 **Sklearn** is used in this project, the Flask Web Application allows to predict the housing prices in Boston based on Kaggle model. The details about the approach can be found at: *[Kaggle Boston](https://www.kaggle.com/c/boston-housing)*, sources for application can be found here.
 
-## Watch short video about the proejc ton *[Youtube](https://youtu.be/abFjDkjCfoQ)*
+#### Watch short video about the proejc ton *[Youtube](https://youtu.be/abFjDkjCfoQ)*
 
 # Project Plan
 
@@ -453,4 +453,4 @@ Starting Live Log Stream ---
 2021-01-06T18:12:18.452119652Z 172.16.0.1 - - [06/Jan/2021:18:12:18 +0000] "POST /predict HTTP/1.1" 200 35 "-" "curl/7.64.0"
 ```
 
-## Watch short video about the proejc ton *[Youtube](https://youtu.be/abFjDkjCfoQ)*
+#### Watch short video about the proejc ton *[Youtube](https://youtu.be/abFjDkjCfoQ)*
