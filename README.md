@@ -6,7 +6,7 @@
 
 This project demonstrates Continuous Integration & Delivery for Python based application using the FLASK Web Framework.
 
-**Sklearn** is used in this project, the Flask Web Application allows to predict the housing prices in Boston based on Kaggle model. The details about the approach can be found at: *[Kaggle Boston](https://www.kaggle.com/c/boston-housing)*, sources for application can be found here.
+**Sklearn** is used in this project, the Flask Web Application allows to predict the housing prices in Boston based on Kaggle model. The details about the approach can be found at: *[Kaggle Boston](https://www.kaggle.com/c/boston-housing)*, sources for application can be found [here](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files)
 
 #### Watch short video about the project on *[Youtube](https://youtu.be/abFjDkjCfoQ)*
 
@@ -19,8 +19,12 @@ Project consisted of two phases: Continuous Integration & Continuous delivery, t
 ## Setting up the stage
 
 Before final Flask Web Application is deployed using CI/CD, it is worth to split activity to smaller tasks and play with simpler examples.
-Follwoing will be done:
+Following will be done:
+##### Dummy Python Project & Local Test (python virtual environment)
+##### Dummy Python Project & SaaS Build Server - GitHUB
+##### FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
 
+## Dummy Python Project & Local Test (python virtual environment)
 
 ### Dependencies
 1. Create an [Azure Account](https://portal.azure.com)
@@ -32,7 +36,6 @@ Once **Azure** account was created go to portal and login. Open Azure CLI consol
 
 Go to Github and create repository,
 
-## Dummy Python Project & Local Test (python virtual environment)
 
 #### Git
 
@@ -262,6 +265,45 @@ Example output from make all can be found [here](https://github.com/buniumasta/f
 
 The next phase of the project is to use GitHub environment for execution the tests & code quality check. For that purpose Git Hub actions needs to be enabled.
 
+Create repository, clone localy, copy the files:
+hello.py, test_hell.py, is_leap_year.py, test_is_leap_year.py, Makefile and requirements.txt
+and push it via git to github.
+
+Using Git hub portal go to Actions and define your own, and add following content to main.yml:
+
+```
+# This is a basic workflow to help you get started with Actions
+name: Python application test with Github Actions
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.5
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.5
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Lint with pylint
+      run: |
+        make lint_hello
+        make lint_is_leap
+    - name: Test with pytest
+      run: |
+        make test_hello
+        make test_is_leap
+
+```
+
+Sync your local repository with github, and make push content. This action shoudl trigger build and Github will do magic for you, please see [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/5#issue-781211502)
+
 ##  FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
 
 Azure Pipelines can trigger the build and validate pull request automatically
@@ -434,7 +476,7 @@ stages:
 
 8. Make the change in application & push code to Github -> Deployment process should start.
 
-9. check logs of Application
+9. Check logs of Application
 
 ```
 az webapp log tail --name flask-ml-myservice --resource-group <YOURRG>
@@ -453,4 +495,8 @@ Starting Live Log Stream ---
 2021-01-06T18:12:18.452119652Z 172.16.0.1 - - [06/Jan/2021:18:12:18 +0000] "POST /predict HTTP/1.1" 200 35 "-" "curl/7.64.0"
 ```
 
+#Enhancements
+Consider different languages than Python, customise pipelines.
+
+# Demo
 #### Watch short video about the project on *[Youtube](https://youtu.be/abFjDkjCfoQ)*
