@@ -6,7 +6,7 @@
 
 [![Build Status](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_apis/build/status/buniumasta.flask-ml-azure-serverless?branchName=main)](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_build/latest?definitionId=2&branchName=main)
 
-This project demonstrates Continuous Integration & Delivery for Python based application using the FLASK Web Framework. Architecture of solution can be seen [here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/14#issue-781479097)
+This project demonstrates Continuous Integration & Delivery for Python based application using the FLASK Web Framework. Architecture of solution is presented below:
 ![Alt text](/img/architecture.png?raw=true "Architecture")
 
 **Sklearn** is used in this project, the Flask Web Application allows to predict the housing prices in Boston based on Kaggle model. The details about the approach can be found at: *[Kaggle Boston](https://www.kaggle.com/c/boston-housing)*, sources for application can be found [here](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files)
@@ -231,43 +231,17 @@ pylint --disable=R,C is_leap_year.py
 Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 ```
 
+
 Run tests for to dummy Python scripts:
+![Alt text](/img/TestOutputFromHello.png?raw=true "RepositoryIsCloned")
 
-```
-make test_is_leap
-
-```
-
-Output should look like:
-
-```
-python -m pytest -vv test_is_leap_year.py
-=============== test session starts ==============================
-platform linux -- Python 3.7.3, pytest-6.2.1, py-1.10.0,
-pluggy-0.13.1 -- /home/bartosz/.flask-ml-azure/bin/python
-cachedir: .pytest_cache
-rootdir: /home/bartosz/projects/flask-ml-azure-serverless
-collected 9 items
-
-test_is_leap_year.py::test_is_leap_01 PASSED [ 11%]
-test_is_leap_year.py::test_is_leap_02 PASSED [ 22%]
-test_is_leap_year.py::test_is_leap_03 PASSED [ 33%]
-test_is_leap_year.py::test_is_leap_04 PASSED [ 44%]
-test_is_leap_year.py::test_is_leap_05 PASSED [ 55%]
-test_is_leap_year.py::test_is_leap_06 PASSED [ 66%]
-test_is_leap_year.py::test_is_leap_07 PASSED [ 77%]
-test_is_leap_year.py::test_is_leap_08 PASSED [ 88%]
-test_is_leap_year.py::test_is_leap_09 PASSED [100%]
-
-========= 9 passed in 0.02s ======================================================
-```
-
-Ensure that your repository is [cloned & up to date](https://github.com/buniumasta/flask-ml-azure-serverless/issues/6#issue-781412066)) with GitHup repo.
+Repository is in sync with GitHub
+![Alt text](/img/RepositoryIsCloned.png?raw=true "RepositoryIsCloned")
 
 
-Test output from hello function will look like [screen](https://github.com/buniumasta/flask-ml-azure-serverless/issues/7#issue-781422830)
+Make All is executed:
+![Alt text](/img/OutputMakeAll.png?raw=true "RepositoryIsCloned")
 
-Example output from make all can be found [here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/4#issue-780630236)
 
 ## Dummy Python Project & SaaS Build Server - GitHUB
 
