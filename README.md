@@ -247,7 +247,6 @@ Make All is executed:
 
 The next phase of the project is to use GitHub environment for execution the tests & code quality check. For that purpose Git Hub actions needs to be enabled.
 
-Ensure that your repository is cloned to Azure and and be accessed via Azure Cli, see [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/6#issue-781412066)
 
 Using Git hub portal go to Actions and define your own, and add following content to main.yml:
 
@@ -282,7 +281,12 @@ jobs:
 
 ```
 
-Synchronise your local repository with github, and make push content. This action should trigger build and Github will do magic for you, please see [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/5#issue-781211502) and check if it was [successful](https://github.com/buniumasta/flask-ml-azure-serverless/issues/13#issue-781453771).
+Synchronise your local repository with github, and push content. This action should trigger build and Github will do magic for you.
+Build will start as presented below:
+![Alt text](/img/GitHubBuild.png?raw=true "Build GitHub Actions")
+
+Successfull build will look like:
+![Alt text](/img/SuccGitHubBuild.png?raw=true "Build GitHub Actions")
 
 ##  FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
 
