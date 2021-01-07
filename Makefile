@@ -14,6 +14,9 @@ test_is_leap:
 lint_is_leap:
 	pylint --disable=R,C is_leap_year.py
 
+lint_locust:
+	pylint --disable=R,C locustfile.py
+
 lint:
 	pylint --disable=R,C,W1203,W0702 app.py
 
