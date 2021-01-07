@@ -16,15 +16,15 @@ Project consisted of two phases: Continuous Integration & Continuous delivery, t
 
 # Instructions
 
-## Setting up the stage
-
 Before final Flask Web Application is deployed using CI/CD, it is worth to split activity to smaller tasks and play with simpler examples.
 Following will be done:
 ##### Dummy Python Project & Local Test (python virtual environment)
 ##### Dummy Python Project & SaaS Build Server - GitHUB
 ##### FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
 
+
 ## Dummy Python Project & Local Test (python virtual environment)
+
 
 ### Dependencies
 1. Create an [Azure Account](https://portal.azure.com)
@@ -495,8 +495,8 @@ Starting Live Log Stream ---
 2021-01-06T18:12:18.452119652Z 172.16.0.1 - - [06/Jan/2021:18:12:18 +0000] "POST /predict HTTP/1.1" 200 35 "-" "curl/7.64.0"
 ```
 
-#Enhancements
-Consider different languages than Python, customise pipelines.
+# Enhancements
+Consider different languages than Python, LoadTesting, customise pipelines.
 
 # Demo
 #### Watch short video about the project on *[Youtube](https://youtu.be/abFjDkjCfoQ)*
