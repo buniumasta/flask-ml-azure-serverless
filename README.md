@@ -213,11 +213,6 @@ Change the line in make_predict_azure_app.sh to match the deployed prediction:
 
 6. Run prediction prediction script and feed in application with example data.
 
-```
-bartosz@Azure:~/projects/flask-ml-azure-serverless$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
-```
 Successful prediction in Azure will look like:
 
 ![Alt text](/img/SuccessfulPrediction.png?raw=true "Tests")
@@ -342,7 +337,7 @@ Successful deployment will look like
 
 9. Azure App Service
 
-Application is up & Running, it was successfuly deployed with Name changed:
+Application is up & Running, it was successfully deployed with Name changed:
 ![Alt text](/img/AppService.png?raw=true "Tests")
 
 10. Check logs of Application
@@ -363,9 +358,13 @@ Starting Live Log Stream ---
 2021-01-06T18:12:18.441876443Z [2021-01-06 18:12:18,441] INFO in app: Scaling Payload: %s payload
 2021-01-06T18:12:18.452119652Z 172.16.0.1 - - [06/Jan/2021:18:12:18 +0000] "POST /predict HTTP/1.1" 200 35 "-" "curl/7.64.0"
 ```
+11. LoadTest Executution
+
+Load was generated and application stability was checked:
+![Alt text](/img/AppService.png?raw=true "Tests")
 
 # Enhancements
-Consider different languages than Python, LoadTesting, customise pipelines.
+Consider different languages than Python, customise pipelines.
 
 # Demo
 #### Watch short video about the project on *[Youtube](https://youtu.be/abFjDkjCfoQ)*
