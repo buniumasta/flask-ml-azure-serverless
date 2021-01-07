@@ -337,12 +337,13 @@ stages:
 Go to Azure DevOps and check the if was triggered:
 ![Alt text](/img/DevOpsTrigger.png?raw=true "Tests")
 
-Successful deploymenet will look like
+Successful deployment will look like
 ![Alt text](/img/SuccDeploy.png?raw=true "Tests")
 
 9. Azure App Service
 
-Please check if your application is visible in [Azure App Service](https://github.com/buniumasta/flask-ml-azure-serverless/issues/9#issue-781432607)
+Application is up & Running, it was successfuly deployed with Name changed:
+![Alt text](/img/AppService.png?raw=true "Tests")
 
 10. Check logs of Application
 
