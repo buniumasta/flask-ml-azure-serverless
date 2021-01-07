@@ -259,15 +259,18 @@ test_is_leap_year.py::test_is_leap_09 PASSED [100%]
 ========= 9 passed in 0.02s ======================================================
 ```
 
+Ensure that your repository is [cloned & up to date](https://github.com/buniumasta/flask-ml-azure-serverless/issues/6#issue-781412066)) with GitHup repo.
+
+
+Test output from hello function will look like [screen](https://github.com/buniumasta/flask-ml-azure-serverless/issues/7#issue-781422830)
+
 Example output from make all can be found [here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/4#issue-780630236)
 
 ## Dummy Python Project & SaaS Build Server - GitHUB
 
 The next phase of the project is to use GitHub environment for execution the tests & code quality check. For that purpose Git Hub actions needs to be enabled.
 
-Create repository, clone localy, copy the files:
-hello.py, test_hell.py, is_leap_year.py, test_is_leap_year.py, Makefile and requirements.txt
-and push it via git to github.
+Ensure that your repository is cloned to Azure and and be accessed via Azure Cli, see [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/6#issue-781412066)
 
 Using Git hub portal go to Actions and define your own, and add following content to main.yml:
 
@@ -302,7 +305,7 @@ jobs:
 
 ```
 
-Sync your local repository with github, and make push content. This action shoudl trigger build and Github will do magic for you, please see [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/5#issue-781211502)
+Synchronise your local repository with github, and make push content. This action should trigger build and Github will do magic for you, please see [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/5#issue-781211502)
 
 ##  FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
 
@@ -357,13 +360,14 @@ Change the line in make_predict_azure_app.sh to match the deployed prediction:
 -X POST https://flask-ml-myserice.azurewebsites.net:$PORT/predict
 ```
 
-6. Run prediction prediction script and feed in applicaton with example data.
+6. Run prediction prediction script and feed in application with example data.
 
 ```
 bartosz@Azure:~/projects/flask-ml-azure-serverless$ ./make_predict_azure_app.sh
 Port: 443
 {"prediction":[20.35373177134412]}
 ```
+Successful prediction in Azure will look like: [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/8#issue-781430889)
 
 ### Create an Azure DevOps project
 Next, we'll need to create an Azure DevOps project and connect to Azure.
@@ -476,7 +480,13 @@ stages:
 
 8. Make the change in application & push code to Github -> Deployment process should start.
 
-9. Check logs of Application
+Go to Azure DevOps and check the if was triggered and successful
+
+9. Azure App Service
+
+Please check if your application is visible in [Azure App Service](https://github.com/buniumasta/flask-ml-azure-serverless/issues/9#issue-781432607)
+
+10. Check logs of Application
 
 ```
 az webapp log tail --name flask-ml-myservice --resource-group <YOURRG>
