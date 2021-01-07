@@ -49,64 +49,19 @@ Repository is in sync with GitHub
 
 #### Create Makefile
 
-add basic structure to enable automation
-```
-install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+Add basic Makefile structure to enable automation & ensure that all dependencies is installed
 
-test_hello:
-	python -m pytest -vv test_hello.py
+Add files to git version control, commit and push.
 
-lint_hello:
-		pylint --disable=R,C, hello.py
-
-test_is_leap:
-	python -m pytest -vv test_is_leap_year.py
-
-lint_is_leap:
-	pylint --disable=R,C is_leap_year.py
-
-all: install lint_hello test_hello
-```
-
-create requirements.txt which will list all python dependencies for project:
-```
-Flask==1.0.2
-pandas==0.24.2
-scikit-learn==0.20.3
-pylint
-pytest
-```
-
-
-Add files to version control, commit and push.
-```
-git add hello.py
-git add test_hello.py
-git add is_leap_year.py
-git add test_is_leap_year.py
-git add Makefile
-git commit -m "dummy project files"
-git push
-```
 Setup & Run Python virtual environment:
 
-```
-python3 -m venv ~/.flask-ml-azure
-source ~/.flask-ml-azure/bin/activate
-```
-
-Prepare environment by installing Dependencies:
-
-```
-make install
-```
 
 #### Testing & Checking quality: Dummy Python scripts
 
+Prepare environment by installing Dependencies
+
 Check quality of Code (lint) & Run tests for to dummy Python scripts:
-![Alt text](/img/TestOutputFromHello.png?raw=true "Tests")
+![Alt text](/img/testsCont.png?raw=true "Tests")
 
 
 Make All is executed:
