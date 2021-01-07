@@ -11,9 +11,9 @@ class WebsiteTestUser(HttpUser):
         """ on_stop is called when the TaskSet is stopping """
         pass
 
-    @task(1)
-    def index(self):
-        self.client.get("http://flask-ml-myservice.azurewebsites.net")
+#    @task(1)
+#    def index(self):
+#        self.client.get("http://flask-ml-myservice.azurewebsites.net")
 
     @task(1)
     def predict(self):
@@ -36,4 +36,5 @@ class WebsiteTestUser(HttpUser):
        "LSTAT":{
           "0":4.98
        }
-    })
+    },
+    headers={'content-type': 'application/json'})
