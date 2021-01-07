@@ -2,6 +2,8 @@
 
 ## CD-CI - Python Flask Web Framework
 
+![Python application test with Github Actions](https://github.com/buniumasta/flask-ml-azure-serverless/workflows/Python%20application%20test%20with%20Github%20Actions/badge.svg)
+
 [![Build Status](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_apis/build/status/buniumasta.flask-ml-azure-serverless?branchName=main)](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_build/latest?definitionId=2&branchName=main)
 
 This project demonstrates Continuous Integration & Delivery for Python based application using the FLASK Web Framework.
@@ -305,7 +307,7 @@ jobs:
 
 ```
 
-Synchronise your local repository with github, and make push content. This action should trigger build and Github will do magic for you, please see [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/5#issue-781211502)
+Synchronise your local repository with github, and make push content. This action should trigger build and Github will do magic for you, please see [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/5#issue-781211502) and check if it was [successful](https://github.com/buniumasta/flask-ml-azure-serverless/issues/13#issue-781453771).
 
 ##  FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
 
