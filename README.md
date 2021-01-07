@@ -7,6 +7,7 @@
 [![Build Status](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_apis/build/status/buniumasta.flask-ml-azure-serverless?branchName=main)](https://dev.azure.com/bartoszpostrowski/flask-ml-azure-serverless/_build/latest?definitionId=2&branchName=main)
 
 This project demonstrates Continuous Integration & Delivery for Python based application using the FLASK Web Framework. Architecture of solution can be seen [here](https://github.com/buniumasta/flask-ml-azure-serverless/issues/14#issue-781479097)
+![Alt text](/img/architecture.jpg?raw=true "architecture")
 
 **Sklearn** is used in this project, the Flask Web Application allows to predict the housing prices in Boston based on Kaggle model. The details about the approach can be found at: *[Kaggle Boston](https://www.kaggle.com/c/boston-housing)*, sources for application can be found [here](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files)
 
