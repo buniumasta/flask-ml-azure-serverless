@@ -19,8 +19,9 @@ Project consisted of two phases: Continuous Integration & Continuous delivery, t
 
 # Instructions
 
-Before final Flask Web Application is deployed using CI/CD, it is worth to split activity to smaller tasks and play with simpler examples.
-Following will be done:
+Before final Flask Web Application was deployed using CI/CD, it was worth to split activity to smaller tasks and play with simpler examples.
+
+Following 3 main stages were performed:
 ##### Dummy Python Project & Local Test (python virtual environment)
 ##### Dummy Python Project & SaaS Build Server - GitHUB
 ##### FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
@@ -35,32 +36,32 @@ Following will be done:
 3. Basic [Python](https://www.python.org/) knowledge & programming experience
 4. Basic shell
 
-Once **Azure** account was created go to portal and login. Open Azure CLI console in portal, see below [screen](https://github.com/buniumasta/flask-ml-azure-serverless/issues/3#issue-780585384)
+**Azure** account need to be created. Storage for Azure CLI need to be reserved, see below [screen](https://github.com/buniumasta/flask-ml-azure-serverless/issues/3#issue-780585384)
 
-Go to Github and create repository,
+Dedicated Github repository needs to be created, this would be the place for the all resources.
 
 
 #### Git
 
-Copy SSH link of created GitHUB repository from *code* section/tab, clone repository in Azure CLI, ensure that it is up to date:
+Repository should be cloned to Azure CLI.
 
 Repository is in sync with GitHub
 ![Alt text](/img/RepositoryIsCloned.png?raw=true "RepositoryIsCloned")
 
 #### Create Makefile
 
-Add basic Makefile structure to enable automation & ensure that all dependencies is installed
+Makefile structure should be created to enable automation & ensure that all dependencies were installed
 
-Add files to git version control, commit and push.
+Git repo should be up-date with GitHub.
 
-Setup & Run Python virtual environment:
+Virtual Python environment should be created and activated.
 
 
 #### Testing & Checking quality: Dummy Python scripts
 
-Prepare environment by installing Dependencies
+Python virtual environment activated and all dependencies installed.
 
-Check quality of Code (lint) & Run tests for to dummy Python scripts:
+Quality of Code checked & tests were executed for to dummy Python scripts:
 ![Alt text](/img/testsCont.png?raw=true "Tests")
 
 
@@ -70,55 +71,24 @@ Make All is executed:
 
 ## Dummy Python Project & SaaS Build Server - GitHUB
 
-The next phase of the project is to use GitHub environment for execution the tests & code quality check. For that purpose Git Hub actions needs to be enabled.
+The next phase of the project is to use GitHub environment for execution the tests & code quality check rather than AzureCLI virtual (or Local). For that purpose Git Hub actions needs to be enabled.
 
 
-Using Git hub portal go to Actions and define your own, and add following content to main.yml:
+GitHub Actions should be enabled and configuration file edited according to needs.
 
-```
-# This is a basic workflow to help you get started with Actions
-name: Python application test with Github Actions
+Local repository synchronised with GitHub, and content pushed. Once this done - immediately action should trigger build and Github executes all the magic.
 
-on: [push]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.5
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.5
-    - name: Install dependencies
-      run: |
-        make install
-    - name: Lint with pylint
-      run: |
-        make lint_hello
-        make lint_is_leap
-    - name: Test with pytest
-      run: |
-        make test_hello
-        make test_is_leap
-
-```
-
-Synchronise your local repository with github, and push content. This action should trigger build and Github will do magic for you.
-
-Build will start as presented below:
+Build should start as presented below:
 
 ![Alt text](/img/GitHubBuild.png?raw=true "Build GitHub Actions")
 
-Successful build will look like:
+Successful build should look like:
 
 ![Alt text](/img/SuccGitHubBuild.png?raw=true "Build GitHub Actions")
 
 ##  FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
 
-Azure Pipelines can trigger the build and validate pull request automatically
+Azure Pipelines can trigger the build and validate pull request automatically, application then can be automatically deployed.
 
 ### Dependencies
 1. Githup account
@@ -128,32 +98,19 @@ Azure Pipelines can trigger the build and validate pull request automatically
 
 ### Instructions
 
-1.  Set Up Your GitHub Repository,
+1. GitHub Repository set
 
 
-2. Clone the Repository & ensure that sklearn files are present
+2. Repository cloned to Azure Shell & ensure that sklearn files are present
 
 
-```
-git clone <(ssh link from github)>
-```
+3. Environment setup all decencies installed
 
-3. Set up virtualenv:
 
-```
-python3 -m venv ~/.flask-ml-azure
-source ~/.flask-ml-azure/bin/activate
-```
+5. App service created and initially deployed
 
-4. Run make install & install dependencies
 
-5.  Create an app service and initially deploy your app in Cloud Shell:
-
-```
-az webapp up -n flask-ml-myservice
-```
-
-6. Verify the deployed application works by browsing to the deployed url
+6. Deployment verified
 
 ```
 Check application link:
@@ -161,149 +118,42 @@ Check application link:
 https://flask-ml-myservice.azurewebsites.net/
 ```
 
-5. Edit Shell script make_predict_azure_app.sh
+5. Application verified and checked.
 
-```
-Change the line in make_predict_azure_app.sh to match the deployed prediction:
--X POST https://flask-ml-myserice.azurewebsites.net:$PORT/predict
-```
+6. Predictions script executed.
 
-6. Run prediction prediction script and feed in application with example data.
-
-Successful prediction in Azure will look like:
+Successful prediction in Azure:
 
 ![Alt text](/img/SuccessfulPrediction.png?raw=true "Tests")
 
 
 ### Create an Azure DevOps project
-Next, we'll need to create an Azure DevOps project and connect to Azure.
 
-  1. Create new project and name it
+Azure DevOps environment configured
+
+  1. New DevOps project named and created
   2. Follow official *[MS documenation](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)*
-  3. Setup  new service connection with Azure Resource Manager
-  4. Select Pipeline and create a new one.
-  5. Create the GitHub Integration and choose Configure Python to Linux Web App on Azure
-  6. Edit YAML file as follow:
+  3. New service connection set up with Azure Resource Manager
+  4. New Pipeline created
+  5. GitHub Integrated
+  6. Configuration file Edited.
 
-```
-# Python to Linux Web App on Azure
-# Build your Python project and deploy it to Azure as a Linux Web App.
-# Change python version to one thats appropriate for your application.
-# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+#### Trigger of Deployment
 
-trigger:
-- main
+Every change in source code & push code to Github triggers Deployment of Applicaiton to Azure.
 
-variables:
-  # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: 'a2871cdf-a404-4080-9125-973b64a3c2a5'
-
-  # Web app name
-  webAppName: 'flask-ml-myservice'
-
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
-
-  # Environment name
-  environmentName: 'flask-ml-myservice'
-
-  # Project root folder. Point to the folder containing manage.py file.
-  projectRoot: $(System.DefaultWorkingDirectory)
-
-  # Python version: 3.7
-  pythonVersion: '3.7'
-
-stages:
-- stage: Build
-  displayName: Build stage
-  jobs:
-  - job: BuildJob
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: UsePythonVersion@0
-      inputs:
-        versionSpec: '$(pythonVersion)'
-      displayName: 'Use Python $(pythonVersion)'
-
-    - script: |
-        python -m venv antenv
-        source antenv/bin/activate
-        python -m pip install --upgrade pip
-        pip install setup
-        pip install -r requirements.txt
-      workingDirectory: $(projectRoot)
-      displayName: "Install requirements"
-
-    - script: |
-        python -m venv antenv
-        source antenv/bin/activate
-        make install
-        make lint
-      workingDirectory: $(projectRoot)
-      displayName: "Run Lint test"
-
-    - task: ArchiveFiles@2
-      displayName: 'Archive files'
-      inputs:
-        rootFolderOrFile: '$(projectRoot)'
-        includeRootFolder: false
-        archiveType: zip
-        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-        replaceExistingArchive: true
-
-    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      displayName: 'Upload package'
-      artifact: drop
-
-- stage: Deploy
-  displayName: 'Deploy Web App'
-  dependsOn: Build
-  condition: succeeded()
-  jobs:
-  - deployment: DeploymentJob
-    pool:
-      vmImage: $(vmImageName)
-    environment: $(environmentName)
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-
-          - task: UsePythonVersion@0
-            inputs:
-              versionSpec: '$(pythonVersion)'
-            displayName: 'Use Python version'
-
-          - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : flask-ml-myservice'
-            inputs:
-              azureSubscription: $(azureServiceConnectionId)
-              appName: $(webAppName)
-              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-
-```
-
-8. Make the change in application & push code to Github -> Deployment process should start.
-
-Go to Azure DevOps and check the if was triggered:
+Azure DevOps is triggered:
 ![Alt text](/img/DevOpsTrigger.png?raw=true "Tests")
 
-Successful deployment will look like
+Applicaiton Successfully deployed
 ![Alt text](/img/SuccDeploy.png?raw=true "Tests")
 
-9. Azure App Service
+Azure App Service
 
-Application is up & Running, it was successfully deployed with Name changed:
+Application is up & Running, automatically deployed with Name changed:
 ![Alt text](/img/AppService.png?raw=true "Tests")
 
-10. Check logs of Application
-
-```
-az webapp log tail --name flask-ml-myservice --resource-group <YOURRG>
-
-```
-
+10. Logs of application checked
 
 ```
 Ending Log Tail of existing logs ---
