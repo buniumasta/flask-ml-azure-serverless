@@ -42,122 +42,10 @@ Go to Github and create repository,
 
 #### Git
 
-Copy SSH link of created GitHUB repository from *code* section/tab, clone repository in Azure CLI:
+Copy SSH link of created GitHUB repository from *code* section/tab, clone repository in Azure CLI, ensure that it is up to date:
 
-```
-git clone <sshlink>
-```
-
-Configure global user&email:
-```
-git config user.name "YourName"
-git config user.email "Your@email"
-```
-
-#### Create python files:
-*hello.py*
-```
-def toyou(x):
-    return "hi %s" % x
-
-
-def add(x):
-    return x + 1
-
-
-def subtract(x):
-    return x - 1
-
-```
-
-*test_hello.py*
-```
-from hello import toyou, add, subtract
-
-
-def setup_function(function):
-    print("Running Setup: %s" % function.__name__)
-    function.x = 10
-
-
-def teardown_function(function):
-    print("Running Teardown: %s" % function.__name__)
-    del function.x
-
-
-### Run to see failed test
-#def test_hello_add():
-#    assert add(test_hello_add.x) == 12
-
-def test_hello_subtract():
-    assert subtract(test_hello_subtract.x) == 9
-
-```
-
-*is_leap_year.py*
-```
-def is_leap(year):
-    leap = False
-    if year % 4 == 0:
-        if year % 100 == 0:
-            if year % 400 == 0:
-                leap=True
-            else:
-                leap=False
-        else:
-            leap=True
-    else:
-        leap=False
-
-    return leap
-```
-
-
-*test_is_leap_year.py*
-```
-from is_leap_year import is_leap
-
-def test_is_leap_01():
-    total=is_leap(1980)
-    assert total == True
-
-def test_is_leap_02():
-    total=is_leap(2020)
-    assert total == True
-
-def test_is_leap_03():
-    total=is_leap(1990)
-    assert total == False
-
-def test_is_leap_04():
-    total=is_leap(2000)
-    assert total == True
-
-def test_is_leap_05():
-    total=is_leap(2400)
-    assert total == True
-
-def test_is_leap_06():
-    total=is_leap(2100)
-    assert total == False
-
-def test_is_leap_07():
-    total=is_leap(2200)
-    assert total == False
-
-def test_is_leap_08():
-    total=is_leap(2300)
-    assert total == False
-
-def test_is_leap_09():
-    total=is_leap(2024)
-    assert total == True
-
-def test_is_leap_09():
-    total=is_leap(24)
-    assert total == True
-
-```
+Repository is in sync with GitHub
+![Alt text](/img/RepositoryIsCloned.png?raw=true "RepositoryIsCloned")
 
 #### Create Makefile
 
@@ -217,26 +105,8 @@ make install
 
 #### Testing & Checking quality: Dummy Python scripts
 
-Check quality of Code (lint)
-
-```
-make lint_is_leap
-```
-
-output should look like:
-```
-pylint --disable=R,C is_leap_year.py
-
---------------------------------------------------------------------
-Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
-```
-
-
-Run tests for to dummy Python scripts:
+Check quality of Code (lint) & Run tests for to dummy Python scripts:
 ![Alt text](/img/TestOutputFromHello.png?raw=true "Tests")
-
-Repository is in sync with GitHub
-![Alt text](/img/RepositoryIsCloned.png?raw=true "RepositoryIsCloned")
 
 
 Make All is executed:
