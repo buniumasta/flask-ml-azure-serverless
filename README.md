@@ -218,7 +218,10 @@ bartosz@Azure:~/projects/flask-ml-azure-serverless$ ./make_predict_azure_app.sh
 Port: 443
 {"prediction":[20.35373177134412]}
 ```
-Successful prediction in Azure will look like: [example](https://github.com/buniumasta/flask-ml-azure-serverless/issues/8#issue-781430889)
+Successful prediction in Azure will look like:
+
+![Alt text](/img/SuccessfulPrediction.png?raw=true "Tests")
+
 
 ### Create an Azure DevOps project
 Next, we'll need to create an Azure DevOps project and connect to Azure.
