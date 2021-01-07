@@ -320,6 +320,9 @@ Starting Live Log Stream ---
 Load was generated and application stability was checked:
 ![Alt text](/img/LoadTests.png?raw=true "Tests")
 
+Load Statistics looked as followed:
+![Alt text](/img/LoadStats.png?raw=true "Tests")
+
 # Enhancements
 Consider different languages than Python, customise pipelines.
 
