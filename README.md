@@ -107,10 +107,13 @@ jobs:
 ```
 
 Synchronise your local repository with github, and push content. This action should trigger build and Github will do magic for you.
+
 Build will start as presented below:
+
 ![Alt text](/img/GitHubBuild.png?raw=true "Build GitHub Actions")
 
 Successful build will look like:
+
 ![Alt text](/img/SuccGitHubBuild.png?raw=true "Build GitHub Actions")
 
 ##  FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
@@ -127,7 +130,6 @@ Azure Pipelines can trigger the build and validate pull request automatically
 
 1.  Set Up Your GitHub Repository,
 
-  Sources for project can be taken from *[here](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files)*
 
 2. Clone the Repository & ensure that sklearn files are present
 
