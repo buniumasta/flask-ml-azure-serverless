@@ -240,7 +240,7 @@ Repository is in sync with GitHub
 
 
 Make All is executed:
-![Alt text](/img/OutPutMakeAll.png?raw=true "RepositoryIsCloned")
+![Alt text](/img/myMake.png?raw=true "RepositoryIsCloned")
 
 
 ## Dummy Python Project & SaaS Build Server - GitHUB
