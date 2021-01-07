@@ -318,7 +318,7 @@ Starting Live Log Stream ---
 11. LoadTest Executution
 
 Load was generated and application stability was checked:
-![Alt text](/img/AppService.png?raw=true "Tests")
+![Alt text](/img/LoadTests.png?raw=true "Tests")
 
 # Enhancements
 Consider different languages than Python, customise pipelines.
