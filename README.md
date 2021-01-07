@@ -334,7 +334,11 @@ stages:
 
 8. Make the change in application & push code to Github -> Deployment process should start.
 
-Go to Azure DevOps and check the if was [triggered](https://github.com/buniumasta/flask-ml-azure-serverless/issues/10#issue-781443782) and [successful](https://github.com/buniumasta/flask-ml-azure-serverless/issues/11#issue-781447355)
+Go to Azure DevOps and check the if was triggered:
+![Alt text](/img/DevOpsTrigger.png?raw=true "Tests")
+
+Successful deploymenet will look like
+![Alt text](/img/SuccDeploy.png?raw=true "Tests")
 
 9. Azure App Service
 
