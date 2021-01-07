@@ -233,7 +233,7 @@ Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
 
 Run tests for to dummy Python scripts:
-![Alt text](/img/TestOutputFromHello.png?raw=true "RepositoryIsCloned")
+![Alt text](/img/TestOutputFromHello.png?raw=true "Tests")
 
 Repository is in sync with GitHub
 ![Alt text](/img/RepositoryIsCloned.png?raw=true "RepositoryIsCloned")
