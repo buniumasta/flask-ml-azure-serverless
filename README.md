@@ -285,7 +285,7 @@ Synchronise your local repository with github, and push content. This action sho
 Build will start as presented below:
 ![Alt text](/img/GitHubBuild.png?raw=true "Build GitHub Actions")
 
-Successfull build will look like:
+Successful build will look like:
 ![Alt text](/img/SuccGitHubBuild.png?raw=true "Build GitHub Actions")
 
 ##  FLASK Python WebApplication - Continuous Delivery - Azure Pipelines
