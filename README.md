@@ -118,9 +118,9 @@ Check application link:
 https://flask-ml-myservice.azurewebsites.net/
 ```
 
-5. Application verified and checked.
+7. Application verified and checked.
 
-6. Predictions script executed.
+8. Predictions script executed.
 
 Successful prediction in Azure:
 
@@ -129,7 +129,7 @@ Successful prediction in Azure:
 
 ### Create an Azure DevOps project
 
-Azure DevOps environment configured
+9. Azure DevOps environment configured
 
   1. New DevOps project named and created
   2. Follow official *[MS documenation](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)*
@@ -140,15 +140,15 @@ Azure DevOps environment configured
 
 #### Trigger of Deployment
 
-Every change in source code & push code to Github triggers Deployment of Applicaiton to Azure.
+Every change in source code & push code to Github triggers Deployment of Application to Azure.
 
 Azure DevOps is triggered:
 ![Alt text](/img/DevOpsTrigger.png?raw=true "Tests")
 
-Applicaiton Successfully deployed
+Application Successfully deployed:
 ![Alt text](/img/SuccDeploy.png?raw=true "Tests")
 
-Azure App Service
+Azure App Service:
 
 Application is up & Running, automatically deployed with Name changed:
 ![Alt text](/img/AppService.png?raw=true "Tests")
@@ -170,7 +170,7 @@ Starting Live Log Stream ---
 Load was generated and application stability was checked:
 ![Alt text](/img/LoadTests.png?raw=true "Tests")
 
-Load Statistics looked as followed:
+Load Statistics looked as following:
 ![Alt text](/img/LoadStats.png?raw=true "Tests")
 
 # Enhancements
